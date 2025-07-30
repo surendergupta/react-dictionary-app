@@ -12,7 +12,7 @@ A sleek and simple ReactJS Dictionary App that fetches word definitions, synonym
 
 ## 🖼 Demo
 
-> Live App 👉 [Click here to try it](https://your-deployment-link.vercel.app)
+> Live App 👉 [Click here to try it](https://react-dictionary-app-five.vercel.app/)
 
 ---
 
@@ -96,7 +96,7 @@ src/
 | Search Word | Result                              |
 | ----------- | ----------------------------------- |
 | `Ananya`    | ✖ No result (404 handled)           |
-| `love`      | ✅ Multiple meanings + pronunciation |
+| `Bird`      | ✅ Multiple meanings + pronunciation |
 
 ---
 
