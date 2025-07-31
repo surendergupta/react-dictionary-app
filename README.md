@@ -1,5 +1,7 @@
 # 📘 React Dictionary App
 
+A responsive, interactive dictionary web app built with React. It allows users to search for English words, see their meanings, listen to pronunciation, view examples, and explore synonyms/antonyms.
+
 A sleek and simple ReactJS Dictionary App that fetches word definitions, synonyms, antonyms, examples, and pronunciation using the [Free Dictionary API](https://dictionaryapi.dev/). It includes:
 
 - 🔍 Real-time word search
@@ -18,15 +20,15 @@ A sleek and simple ReactJS Dictionary App that fetches word definitions, synonym
 
 ## 🚀 Features
 
-- Search any English word and get:
-  - Part of speech
-  - Definition(s)
-  - Example(s)
-  - Synonyms and Antonyms
-  - Audio pronunciation
-- Responsive and accessible UI
-- Toast notifications for user guidance and error handling
-- Loader spinner while fetching results
+- 🔍 Search any English word
+- 🧠 View meanings, definitions, examples
+- 🗣️ Listen to pronunciation audio
+- ❌ Input validation with error toasts
+- 📉 API failure and no-result handling
+- ⏳ Loading spinner with smooth UX
+- 🧼 Debounced search (prevents spamming API)
+- ♿ Accessible (screen-reader friendly buttons)
+- 📱 Fully responsive design for mobile/tablet
 
 ---
 
@@ -41,6 +43,15 @@ A sleek and simple ReactJS Dictionary App that fetches word definitions, synonym
 | React Loader Spinner | Loader animation         |
 | CSS           | Styling                        |
 
+
+- **Frontend:** React, CSS
+- **Libraries:** 
+  - [`react-icons`](https://react-icons.github.io/react-icons/)
+  - [`react-toastify`](https://fkhadra.github.io/react-toastify/)
+  - [`react-loader-spinner`](https://mhnpd.github.io/react-loader-spinner/)
+  - [`lodash.debounce`](https://lodash.com/docs/#debounce)
+- **API:** [Free Dictionary API](https://dictionaryapi.dev/)
+- **Deployment:** [Vercel](https://vercel.com/)
 ---
 
 ## 📦 Installation
@@ -92,7 +103,7 @@ src/
 
 ---
 
-## Request
+## 🧪 Tested Searches
 | Search Word | Result                              |
 | ----------- | ----------------------------------- |
 | `Ananya`    | ✖ No result (404 handled)           |

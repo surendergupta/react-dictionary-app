@@ -10,6 +10,8 @@
     align-items: center;
     justify-content: center;
     margin: 10px auto;
+    font-size: 2rem;
+    gap: 0.5rem;
 }
 .showResults h2 > button{
     padding: 5px 5px 0 5px;
@@ -26,4 +28,10 @@
 .meaning-block h4, .meaning-block p{
     margin-top: 5px;
     margin-bottom: 5px;
+}
+
+@media screen and (max-width: 600px) {
+  .showResults h2 {
+    font-size: 1.5rem;
+  }
 }

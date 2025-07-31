@@ -1,4 +1,5 @@
-import { useCallback, useState } from "react";
+import { useCallback, useMemo, useState } from "react";
+import debounce from 'lodash.debounce';
 import axios from "axios";
 import { Bounce, ToastContainer, toast } from 'react-toastify';
 import { Circles } from 'react-loader-spinner';
@@ -14,6 +15,7 @@ const App = () => {
   const getMeaning =  useCallback(async () => {
     if (!searchWord) {
       toast.error("Please enter a word");
+      setData([]);
       return;
     }
     
@@ -49,20 +51,29 @@ const App = () => {
     try {
       const audio = new Audio(audioUrl);
       audio.play();
-    } catch (e) {
+    } catch (error) {
+      console.error("Error playing audio:", error);
       toast.error("Unable to play audio");
     }
   };
+
+  const debouncedMeaning = useMemo(() => debounce(getMeaning, 1000), [getMeaning]);
   return (
     <div className='App'>
       <h1>React Dictionary App!</h1>
-      <SearchBox setSearchWord={setSearchWord} getMeaning={getMeaning} />
+      <SearchBox setSearchWord={setSearchWord} getMeaning={debouncedMeaning} />
+      {!loading && searchWord.trim() && data.length === 0 && (
+        <div style={{ textAlign: 'center', color: 'red', marginTop: '20px' }}>
+          No results found for "<strong>{searchWord.trim()}</strong>"
+        </div>
+      )}
       {loading ? (
         <div style={{ display: 'flex', justifyContent: 'center', margin: '20px 0' }}>
           <Circles height="80" width="80" color="#4fa94d" ariaLabel="loading" />
         </div>
-      ) : (
+      ) : (        
         <Dictionary data={data} audioUrl={audioUrl} playAudio={playAudio} setAudioUrl={setAudioUrl} />
+        
       )}
       <ToastContainer 
         position="top-right"
